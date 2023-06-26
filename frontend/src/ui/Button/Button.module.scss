@@ -1,0 +1,37 @@
+.button {
+    height: 40px;
+
+    border-radius: 8px;
+
+    font-family: var(--fontPrimary);
+    font-size: 14px;
+    font-weight: 500;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.primary {
+        color: white;
+        background-color: var(--orange);
+        padding: 0 16px;
+        border: none;
+
+        &:hover {
+            background-color: var(--orangeHover);   
+        }
+    }
+
+    &.secondary {
+        color: var(--orange);
+        background-color: white;
+        padding: 0 15px;
+        border: 1px solid var(--orange);
+
+        &:hover {
+            color: var(--orangeHover);
+            background-color: var(--bgSecondary);
+            border-color: var(--orangeHover);
+        }
+    }
+}

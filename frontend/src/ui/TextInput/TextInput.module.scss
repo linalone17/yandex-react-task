@@ -1,0 +1,18 @@
+.input {
+    width: 360px;
+    height: 40px;
+    border: 1px solid var(--borderDefault);
+    border-radius: 8px;
+    background-color: inherit;
+
+    padding-left: 16px;
+
+    font-family: var(--fontSecondary);
+    font-size: 14px;
+
+    color: var(--textPrimary);
+
+    &:focus {
+        border-color: var(--orange);
+    }
+}

@@ -1,0 +1,68 @@
+.movie {
+    padding: 21px 24px;
+    display: flex;
+    gap: 32px;
+    
+    background-color: var(--bgPrimary);
+    border-radius: 8px;
+
+    .poster {
+        width: 400px;
+        height: 500px;
+        flex-shrink: 0;
+        overflow: hidden;
+        
+        border-radius: 8px;
+    }
+
+    .about {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        font-family: var(--fontPrimary);
+        
+        .wrapper {
+            // display: flex;
+            // justify-content: space-between;
+            // gap: 8px;
+
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-gap: 20px;
+            .left {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+
+                .title {
+                    font-size: 32px;
+                    font-weight: 600;
+                }
+            
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+        
+                    span {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            h3 {
+                font-size: 20px;
+                font-weight: 600;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+}

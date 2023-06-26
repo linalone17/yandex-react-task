@@ -1,0 +1,13 @@
+.wrapper {
+    padding: 24px 32px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .reviews {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+}

@@ -1,0 +1,30 @@
+.wrapper {
+    min-height: var(--mainMinHeight);
+    padding: 24px 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 36px;
+    
+    .tickets {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .total {
+        padding: 24px;
+
+        display: flex;
+        justify-content: space-between;
+
+        background-color: var(--bgPrimary);
+        border-radius: 8px;
+
+        color: var(--textPrimary, #1B1F23);
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 600;
+    }
+}

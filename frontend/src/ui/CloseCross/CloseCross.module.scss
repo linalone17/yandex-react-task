@@ -1,0 +1,8 @@
+.wrapper {
+    fill: var(--gray1);
+
+    &:hover {
+        cursor: pointer;
+        fill: var(--orange);
+    }
+}

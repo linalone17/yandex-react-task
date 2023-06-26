@@ -1,0 +1,22 @@
+{
+  "name": "biletopoisk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd ./frontend && node index.js && cd ../simple_api && npm run start",
+    "installDeps": "cd ./frontend && npm i && cd ..simple_api && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SArchieEdu/shri-react-hw-2023.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SArchieEdu/shri-react-hw-2023/issues"
+  },
+  "homepage": "https://github.com/SArchieEdu/shri-react-hw-2023#readme"
+}

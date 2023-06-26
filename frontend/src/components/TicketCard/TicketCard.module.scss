@@ -1,0 +1,54 @@
+.ticketCard {
+    padding: 24px;
+    height: 168px;
+
+    border-radius: 8px;
+    background-color: var(--bgPrimary);
+
+    font-family: var(--fontPrimary);
+    font-size: 20px;
+    font-weight: 600;
+
+    .wrapper {
+        // display: flex;
+        // gap: 24px;
+
+        display: grid;
+        grid-gap: 24px;
+        grid-template-columns: auto 1fr auto;
+        position: relative;
+
+        .poster {
+            width: 100px;
+            height: 120px;
+
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .genre {
+                font-size: 16px;
+                font-style: italic;
+                font-weight: normal;
+            }
+        }
+
+        .controls {
+            align-self: start;
+
+            display: flex;
+            gap: 24px;
+            align-items: center;
+
+            .closeIcon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}

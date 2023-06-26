@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('../../public/fonts/sf-pro-text/SFProDisplay-Regular.eot');
+  src: url('../../public/fonts/sf-pro-text/SFProDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-Regular.woff2') format('woff2'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-Regular.woff') format('woff'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('../../public/fonts/sf-pro-text/SFProDisplay-RegularItalic.eot');
+  src: url('../../public/fonts/sf-pro-text/SFProDisplay-RegularItalic.eot?#iefix') format('embedded-opentype'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-RegularItalic.woff2') format('woff2'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-RegularItalic.woff') format('woff'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-RegularItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('../../public/fonts/sf-pro-text/SFProDisplay-Medium.eot');
+  src: url('../../public/fonts/sf-pro-text/SFProDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-Medium.woff2') format('woff2'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-Medium.woff') format('woff'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('../../public/fonts/sf-pro-text/SFProDisplay-Semibold.eot');
+  src: url('../../public/fonts/sf-pro-text/SFProDisplay-Semibold.eot?#iefix') format('embedded-opentype'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-Semibold.woff2') format('woff2'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-Semibold.woff') format('woff'),
+      url('../../public/fonts/sf-pro-text/SFProDisplay-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+:root {
+  /* palette */
+
+  --gray1: #333333;
+  --gray2: #E0E0E0;
+  --gray3: #828282;
+  --gray4: #E0E0E0;
+  --gray5: #E0E0E0;
+
+  --orange: #FF5500;
+  --orangeHover: #E94E00;
+  --orangeDisabled: #FFA375;
+
+  --borderDefault: #E1E3E6;
+
+  --textPrimary: #1B1F23;
+  --textSecondary: #999FA6;
+  --textTertiary: #FFFFFF;
+  --textTertiaryHover: #E0E0E0;;
+
+
+  --bgPrimary: #FFFFFF;
+  --bgSecondary: #F5F5F5;
+  --bgTertiary: #333333;
+
+  /* fonts */
+  --fontPrimary: 'Roboto', sans-serif;
+  --fontSecondary: 'SF Pro', sans-serif;
+
+  // dimensions
+
+  --mainMinHeight: calc(100vh - 86px - 84px);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {}
+} */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  background-color: var(--bgTertiary);
+}
+
+body main{
+  color: var(--textPrimary);
+  background-color: var(--bgSecondary);
+  min-height: var(--mainMinHeight);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input {
+  outline: none;
+}
+

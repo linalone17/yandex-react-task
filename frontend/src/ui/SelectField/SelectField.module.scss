@@ -1,0 +1,51 @@
+.legend {
+    font-family: var(--fontSecondary);
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .icon {
+        position: absolute;
+        right: 16px;
+        width: 20px;
+        height: 20px;
+    }
+
+}
+
+.dropdown {
+    width: 100%;
+    padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    background-color: var(--bgPrimary);
+    border-radius: 8px;
+    box-shadow: 0px 10px 22px -4px rgba(27, 31, 35, 0.12);
+
+    font-family: var(--fontSecondary);
+    font-size: 14px;
+
+    user-select: none;
+    
+    .dropdownItem {
+        padding: 12px 12px 10px;
+        border-radius: 8px;
+
+        &:hover {
+            background-color: var(--bgSecondary);
+        }
+    }
+}
