@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import type {Filter, FilterType} from '@/types';
+import type {Filter, FilterType} from '@/types/entities';
 
 
 type FiltersState = {

@@ -1,6 +1,7 @@
+import { Accordion, AccordionItem as Item } from '@/ui/Accordion';
+
 import styles from './styles.module.scss';
 
-import { Accordion, AccordionItem as Item } from '@/ui/Accordion';
 
 export default function FAQPage () {
     return <div className={styles.wrapper}>

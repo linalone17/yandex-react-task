@@ -7,29 +7,31 @@ import Link from 'next/link';
 import { ImagePlaceholder } from '../ImagePlaceholder/ImagePlaceholder';
 import { Counter } from '@/components/Counter';
 import { CloseCross } from '@/ui/CloseCross';
-import styles from './TicketCard.module.scss';
+import styles from './MovieCard.module.scss';
 
 import { useAppSelector } from '@/hooks/useAppSelector';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { decrement, increment, remove } from '@/store/slices/cartSlice';
 
-import type { Movie } from '@/types';
+import type { Movie } from '@/types/entities';
 
-type TicketCardProps = {
+type MovieCardProps = {
     movie: Movie;
     deletable?: boolean;
     onDelete?: () => void;
 }
 
-const TicketCard: React.FC<TicketCardProps> = ({movie, onDelete, deletable = false}) => {
+export const MovieCard: React.FC<MovieCardProps> = ({
+    movie, onDelete, deletable = false
+}) => {
 
     const cart = useAppSelector((state) => state.cartReducer);
     const dispatch = useAppDispatch();
-
+    
     const count = cart.items[movie.id] ?? 0;
-
+    
     return (
-        <div className={styles.ticketCard}>
+        <div className={styles.movieCard}>
             <div className={styles.wrapper}>
                 <Link href={`/movie/${movie.id}`}>
                     <div className={styles.poster}>
@@ -70,6 +72,3 @@ const TicketCard: React.FC<TicketCardProps> = ({movie, onDelete, deletable = fal
         </div>
     )
 }
-
-
-export {TicketCard};

@@ -1,16 +1,13 @@
-
-const {movies} = require("../../../../simple_api/api/mock");
-
 import Image from 'next/image';
 
-import styles from './Movie.module.scss';
+import styles from './MovieDetail.module.scss';
 import { ImagePlaceholder } from '../ImagePlaceholder/ImagePlaceholder';
 import { Counter } from '../Counter';
 import { useAppSelector } from '@/hooks/useAppSelector';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { increment, decrement } from '@/store/slices/cartSlice';
 
-import type { Movie as MovieObject } from '@/types';
+import type { Movie } from '@/types/entities';
 
 const genreChoices = ['fantasy', 'horror', 'comedy', 'action'] as const;
 const genreMapping = {
@@ -20,7 +17,7 @@ const genreMapping = {
     'action': 'Экшен',
 };
 
-export const Movie: React.FC<{movie: MovieObject}> = ({movie}) => {
+export const MovieDetail: React.FC<{movie: Movie}> = ({movie}) => {
     const cart = useAppSelector(state => state.cartReducer);
     const dispatch = useAppDispatch();
 
@@ -53,7 +50,7 @@ export const Movie: React.FC<{movie: MovieObject}> = ({movie}) => {
 
                     <div className={styles.right}>
                         <Counter
-                            value={cart.items[movie.id]}
+                            value={cart.items[movie.id] ?? 0}
                             onIncrement={() => {dispatch(increment(movie.id))}}
                             onDecrement={() => {dispatch(decrement(movie.id))}}
                         />

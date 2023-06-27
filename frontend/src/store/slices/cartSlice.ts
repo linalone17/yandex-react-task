@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { strictEqual } from 'assert';
 import { staticGenerationAsyncStorage } from 'next/dist/client/components/static-generation-async-storage';
-import type { MovieId } from '@/types/types';
+import type { MovieId } from '@/types/entities';
 
 
 type CartState = {

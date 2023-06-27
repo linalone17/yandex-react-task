@@ -1,21 +1,13 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react';
 
 import { isNullable } from '@/lib/utils';
-import { TextInput } from '../TextInput/TextInput';
+import { TextFieldBase } from '../TextFieldBase/TextFieldBase';
 import { DropdownArrow } from '../DropdownArrow/DropdownArrow';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 
 import styles from './SelectField.module.scss';
 
 import { createPortal } from 'react-dom';
-
-
-type SelectFieldProps = {
-    legend?: string | number;
-    placeholder?: string;
-    choices: Choices;
-    onSelected: (value: number | null) => void;
-}
 
 type Choices = string[];
 
@@ -45,6 +37,7 @@ const Dropdown: React.FC<{
 
             return (
                 <div 
+                    key={choice}
                     className={styles.dropdownItem}
                     onClick={() => {
                         onSelected(i)
@@ -59,9 +52,17 @@ const Dropdown: React.FC<{
     )}</>
 }
 
-export const SelectField: React.FC<SelectFieldProps> = ({legend, choices, onSelected, placeholder}) => {
+type SelectFieldProps = {
+    legend?: string | number;
+    placeholder?: string;
+    choices: Choices;
+    value: string;
+    onSelected: (value: number | null) => void;
+}
+
+export const SelectField: React.FC<SelectFieldProps> = ({legend, choices, value, onSelected, placeholder}) => {
     const [isActive, setIsActive] = useState<boolean>(false);
-    const [inputValue, setInputValue] = useState<string | number>('');
+    const [isTouched, setIsTouched] = useState<boolean>(false);
 
     const ref = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -70,9 +71,7 @@ export const SelectField: React.FC<SelectFieldProps> = ({legend, choices, onSele
     const emptyValue = 'Не выбрано';
 
     function open() {
-        if (inputValue === '') {
-            setInputValue(emptyValue);
-        }
+        setIsTouched(true);
         setIsActive(true);
     }
 
@@ -99,10 +98,16 @@ export const SelectField: React.FC<SelectFieldProps> = ({legend, choices, onSele
     return <div ref={ref}>
         {!isNullable(legend) && <legend className={styles.legend}>{legend}</legend>}
         <div className={styles.inputWrapper} ref={inputWrapperRef}>
-            <TextInput 
+            <TextFieldBase 
                 onFocus={open}
                 ref={inputRef}
-                value={inputValue}
+                value={
+                    value !== ''
+                    ? value
+                    : isTouched
+                    ? emptyValue
+                    : ''
+                }
                 placeholder={placeholder}
                 readOnly
             />
@@ -122,12 +127,11 @@ export const SelectField: React.FC<SelectFieldProps> = ({legend, choices, onSele
                     targetRef={inputRef}
                     choices={choices}
                     onSelected={(i) => {
+                        setIsTouched(true);
                         if (i === 0) {
                             onSelected(null);
-                            setInputValue(emptyValue);
                         } else {
                             onSelected(i - 1);
-                            setInputValue(choices[i - 1]);
                         }
                         close();
                     }}

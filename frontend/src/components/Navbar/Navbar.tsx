@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-
 import styles from './Navbar.module.scss';
 
 import CartIcon from '@/icons/basket.svg?svgr';

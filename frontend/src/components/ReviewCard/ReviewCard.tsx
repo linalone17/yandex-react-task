@@ -2,7 +2,7 @@ import { ImagePlaceholder } from '../ImagePlaceholder/ImagePlaceholder';
 
 import styles from './ReviewCard.module.scss';
 
-import type { Review } from '@/types';
+import type { Review } from '@/types/entities';
 
 export const ReviewCard: React.FC<{review: Review}> = ({review}) => {
     return <div className={styles.wrapper}>

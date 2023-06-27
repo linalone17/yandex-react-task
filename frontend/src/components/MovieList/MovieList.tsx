@@ -2,13 +2,13 @@
 
 import { useMemo } from 'react';
 
-import { TicketCard } from '../TicketCard';
+import { MovieCard } from '@/components/MovieCard';
 import { useAppSelector } from '@/hooks/useAppSelector';
 import { useGetMoviesQuery, useGetMoviesByCinemaQuery } from '@/services/movieApi';
 
 import styles from './MovieList.module.scss';
 
-import type { Movie, Filter } from '@/types';
+import type { Movie, Filter } from '@/types/entities';
 
 const genreChoices = ['fantasy', 'horror', 'comedy', 'action'] as const;
 const genreMapping = {
@@ -18,7 +18,7 @@ const genreMapping = {
     'action': 'Экшен',
 };
 
-function filter(movie: Movie, filters: Filter[]) {
+function filterPredicate(movie: Movie, filters: Filter[]) {
     return filters.every(filter => {
 
         if (filter.value === '') return true;
@@ -26,10 +26,8 @@ function filter(movie: Movie, filters: Filter[]) {
         switch (filter.type) {
             case 'title':
                 return movie.title.toLowerCase().includes(filter.value.toLowerCase());
-                break;
             case 'genre':
                 return movie.genre === filter.value;
-                break;
             default:
                 return true
         }
@@ -47,8 +45,14 @@ export const MovieList: React.FC = () => {
         return true;
     }, [cinemaFilterValue]);
 
-    const moviesQuery = useGetMoviesQuery(null, {skip: isBackendFilteringRequired});
-    const filteredMoviesQuery = useGetMoviesByCinemaQuery(cinemaFilterValue, {skip: !isBackendFilteringRequired});
+    const moviesQuery = useGetMoviesQuery(
+        null, 
+        {skip: isBackendFilteringRequired}
+    )
+    const filteredMoviesQuery = useGetMoviesByCinemaQuery(
+        cinemaFilterValue, 
+        {skip: !isBackendFilteringRequired
+    })
 
     const {
         data,
@@ -56,19 +60,21 @@ export const MovieList: React.FC = () => {
         isError
     } = isBackendFilteringRequired ? filteredMoviesQuery : moviesQuery;
 
+    const filteredMovies = data?.filter((movie) => filterPredicate(movie, filters));
+
     return <div className={styles.movieList}>
         {isError ? (
-            <>Упс, произошла ошибка</>
+            <div className={styles.message}>Упс, произошла ошибка</div>
         ) : isLoading ? (
-            <>Загрузка</>
-        ) : data ? (
-            <>{data.map(movie => {
-
-                if (!filter(movie, filters)) return;
+            <div className={styles.message}>Загрузка</div>
+        ) : filteredMovies?.length === 0 ? (
+            <div className={styles.message}>Ничего не нашлось :(</div>
+        ) : filteredMovies ? (
+            <>{filteredMovies.map(movie => {
                 movie = {...movie, genre: genreMapping[movie.genre as typeof genreChoices[number]]};
 
                 return (
-                    <TicketCard key={movie.id} movie={movie}/>
+                    <MovieCard key={movie.id} movie={movie}/>
                 )
             })}</>
         ) : null}

@@ -1,13 +1,13 @@
 
 import { ChangeEvent } from 'react';
 
-import { TextInput } from '../TextInput/TextInput';
+import { TextFieldBase } from '@/ui/TextFieldBase';
 import { isNullable } from '@/lib/utils';
 
 import styles from './TextField.module.scss';
 
 type TextFieldProps = {
-    value?: string | number;
+    defaultValue?: string | number;
     legend?: string | number;
     placeholder?: string;
     changable?: boolean;
@@ -19,6 +19,6 @@ export const TextField: React.FC<TextFieldProps> = (
 ) => {
     return <div>
         {!isNullable(legend) && <legend className={styles.legend}>{legend}</legend>}
-        <TextInput {...props} />
+        <TextFieldBase {...props} />
     </div>
 }

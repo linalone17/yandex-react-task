@@ -1,15 +1,16 @@
 'use client';
 import { useState } from "react";
 
-import { TicketCard } from "@/components/TicketCard";
+import { MovieCard } from "@/components/MovieCard";
 import { Modal } from "@/ui/Modal/Modal";
-
-import styles from './styles.module.scss';
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { remove } from "@/store/slices/cartSlice";
 import { useGetMoviesQuery } from "@/services/movieApi";
-import type { MovieId } from "@/types";
+
+import styles from './styles.module.scss';
+
+import type { MovieId } from "@/types/entities";
 
 export default function Cart() {
     const [showModal, setShowModal] = useState<boolean>(false);
@@ -20,7 +21,11 @@ export default function Cart() {
     const {data, isLoading, isError} = useGetMoviesQuery(null);
 
     return <div className={styles.wrapper}>
-        {isError ? (
+        {cart.amount === 0 ? (
+            <div className={styles.empty}>
+                Ваша корзина пуста
+            </div>
+        ) : isError ? (
             <>Упс, произошла ошибка</>
         ) : isLoading ? (
             <>Загрузка...</>
@@ -32,7 +37,7 @@ export default function Cart() {
                     if (!movie) return null;
                     return (
                         <div key={id}>
-                            <TicketCard 
+                            <MovieCard 
                                 movie={movie} 
                                 onDelete={() => {
                                     setShowModal(true);

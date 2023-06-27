@@ -1,14 +1,11 @@
 'use client';
 
-import type { NextPageContext } from "next";
-
-import { Movie } from "@/components/Movie";
+import { MovieDetail } from "@/components/MovieDetail";
 import { ReviewCard } from "@/components/ReviewCard";
-
-import styles from './styles.module.scss';
-
 import { useGetMovieByIdQuery } from '@/services/movieApi';
 import { useGetReviewsByMovieQuery } from '@/services/reviewApi';
+
+import styles from './styles.module.scss';
 
 
 export default function MoviePage(context: any) {
@@ -24,7 +21,7 @@ export default function MoviePage(context: any) {
     
     return <div className={styles.wrapper}>
         {movieQuery.data ? (
-            <Movie movie={movieQuery.data}/>
+            <MovieDetail movie={movieQuery.data}/>
         ) : null}
         {reviewsQuery.data ? (
             <div className={styles.reviews}>
