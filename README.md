@@ -1,8 +1,6 @@
-## Установить депсы из __./frontend__ и __./simple_api__
+## 1. Install deps from  __rootdir/frontend__, __rootdir/simple_api__
 ## `npm run installDeps`
-
-#
-## Дублирующие скрипты из __./frontend__
-## Если выполнять из __корня__, одновременно запускает сервак с апи
-## `npm run start`
-## `npm run dev`
+## 2. Start api server
+## `cd simple_api && node server.js`
+## 3. Start __next__ project from __rootdir/frontend__
+## `cd frontend && ` `npm run dev` \ `npm run start`
