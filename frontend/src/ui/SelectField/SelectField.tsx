@@ -1,13 +1,13 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 import { isNullable } from '@/lib/utils';
-import { TextFieldBase } from '../TextFieldBase/TextFieldBase';
-import { DropdownArrow } from '../DropdownArrow/DropdownArrow';
+import { TextFieldBase } from '@/ui/TextFieldBase/';
+import { DropdownArrow } from '@/ui/DropdownArrow';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 
 import styles from './SelectField.module.scss';
 
-import { createPortal } from 'react-dom';
 
 type Choices = string[];
 

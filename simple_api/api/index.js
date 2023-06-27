@@ -18,8 +18,6 @@ router.get("/movies", (req, res, next) => {
     }
   }
 
-  console.log(result);
-
   reply(res, result);
 });
 

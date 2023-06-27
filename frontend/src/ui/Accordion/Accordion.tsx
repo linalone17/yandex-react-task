@@ -1,9 +1,10 @@
 'use client';
 
 import { PropsWithChildren, useState } from "react";
-import styles from './Accordion.module.scss';
 
 import { DropdownArrow } from "../DropdownArrow/DropdownArrow";
+
+import styles from './Accordion.module.scss';
 
 type AccordionItemProps = {
     title: string;

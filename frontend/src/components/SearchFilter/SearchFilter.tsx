@@ -76,7 +76,6 @@ export const SearchFilter: React.FC = () => {
                     const ids = cinemasQuery.data?.map(e => e.id);
                     if (!ids) return;
                     const value = i === null ? '' : ids[i];
-                    console.log(i);
                     dispatch(change(['cinema', value]));
                 }}
                 choices={cinemasQuery.data?.map(e => e.name) || []}

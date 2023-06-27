@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import type { Movie, Filter } from "@/types";
+import type { Movie, Filter } from "@/types/entities";
 
 export const movieApi = createApi({
     reducerPath: 'movieApi',
