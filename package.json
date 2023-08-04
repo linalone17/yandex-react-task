@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "installDeps": "cd ./frontend && npm i && cd ..simple_api && npm i"
+    "installDeps": "cd ./frontend && npm i && cd ../simple_api && npm i"
   },
   "repository": {
     "type": "git",
